@@ -9,7 +9,7 @@
         <%= generate_menu_item "Events", events_path, NavigationHelper::EVENTS_MENU_ITEM_CLASS, 'icon_events.png' %>
         <%= generate_menu_item "VENs", vens_path, NavigationHelper::VENS_MENU_ITEM_CLASS, 'icon_vens.png' %>
         <%= generate_menu_item "Accounts", accounts_path, NavigationHelper::ACCOUNTS_MENU_ITEM_CLASS, 'icon_accounts.png' %>
-        <%= generate_menu_item "Status & Export", data_export_status_path, NavigationHelper::DATA_EXPORT_MENU_ITEM_CLASS, 'icon_events.png' %>
+        <%# generate_menu_item "Status & Export", data_export_status_path, NavigationHelper::DATA_EXPORT_MENU_ITEM_CLASS, 'icon_events.png' %>
       </ul>
 
     <% end %>
@@ -31,8 +31,10 @@
       </ul>
     <% end %>
 
+    <!--
     <ul>
-      <%= generate_menu_item "Download VEN", root_path + 'epri-ven-current.zip', '', 'icon_vens.png' %>
+      <%# generate_menu_item "Download VEN", root_path + 'epri-ven-current.zip', '', 'icon_vens.png' %>
     </ul>
+    -->
 <% end %>
 </div>

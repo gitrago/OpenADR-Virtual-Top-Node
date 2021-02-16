@@ -3,19 +3,11 @@
   @include box-sizing(border-box);
 
   padding-bottom: 15px;
-  position: fixed;
-  top: 82px;
-  left: 3px;
-
-  // `$navigation-width` set in `base.css.scss`
-  width: $navigation-width;
-
   min-height: 20px;
 
   ul {
     margin: 0px 10px 10px 5px;
     padding: 0;
-    border: 1px solid #DDD;
     background: #F6F6F6;
 
     li {
@@ -25,6 +17,14 @@
       font-size: 1.1em;
 
       border-bottom: 1px solid #DDD;
+      border-right: 1px solid #DDD;
+
+      &:last-child {
+        border-right: none;
+      }
+
+      min-width: 200px;
+      float: left;
 
       &:hover {
         background-color: white;
@@ -49,7 +49,7 @@
     }
 
     &.active {
-      box-shadow: 2px 0 0 0 $active-highlight inset;
+      box-shadow: 0px -2px 2px 0 $active-highlight inset;
       font-weight: bold;
       background-color: white;
       color: black;

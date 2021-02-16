@@ -187,7 +187,15 @@
 
 class ChangeColumnInReportRequests < ActiveRecord::Migration
   def up
-    change_column :report_requests, :dtstart, :datetime
+    # change_column :report_requests, :dtstart, :datetime, using: 'dtstart at time zone \'UTC\''
+    add_column :report_requests, :dtstart_tmp, :datetime
+
+    ReportRequest.find_each do |rr|
+      rr.update_attribute :dtstart_tmp, Time.at(rr.dtstart)
+    end
+
+    remove_column :report_requests, :dtstart
+    rename_column :report_requests, :dtstart_tmp, :dtstart
   end
 
   def down

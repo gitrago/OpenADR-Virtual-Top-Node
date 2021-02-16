@@ -70,13 +70,13 @@ ActiveRecord::Schema.define(:version => 20160923193100) do
     t.string   "name"
     t.string   "description"
     t.string   "custom_units"
-    t.decimal  "hertz",            :precision => 10, :scale => 0
-    t.decimal  "voltage",          :precision => 10, :scale => 0
+    t.decimal  "hertz"
+    t.decimal  "voltage"
     t.boolean  "ac"
     t.integer  "si_scale_code_id"
     t.integer  "unit_type_id"
-    t.datetime "created_at",                                      :null => false
-    t.datetime "updated_at",                                      :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.integer  "currency_type_id"
   end
 
@@ -232,8 +232,8 @@ ActiveRecord::Schema.define(:version => 20160923193100) do
     t.integer  "ei_notification"
     t.integer  "ei_rampup",                    :default => 0
     t.integer  "ei_recovery",                  :default => 0
-    t.datetime "created_at",                                      :null => false
-    t.datetime "updated_at",                                      :null => false
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
     t.integer  "response_required_type_id"
     t.boolean  "template"
     t.integer  "schedule_id"
@@ -242,7 +242,6 @@ ActiveRecord::Schema.define(:version => 20160923193100) do
     t.integer  "account_id"
     t.boolean  "include_subscribed_vens_only"
     t.boolean  "include_party_id"
-    t.string   "time_zone",                    :default => "UTC"
     t.string   "event_interface_name"
   end
 
@@ -489,12 +488,12 @@ ActiveRecord::Schema.define(:version => 20160923193100) do
     t.string   "request_id"
     t.string   "granularity"
     t.string   "report_back_duration"
-    t.datetime "dtstart"
     t.string   "duration"
     t.integer  "report_id"
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
     t.integer  "create_report_id"
+    t.datetime "dtstart"
     t.boolean  "is_metadata"
   end
 

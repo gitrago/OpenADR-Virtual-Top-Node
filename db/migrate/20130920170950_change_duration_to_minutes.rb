@@ -188,11 +188,11 @@
 class ChangeDurationToMinutes < ActiveRecord::Migration
   def up
     change_table :events do |t|
-      t.change :duration, :integer
-      t.change :tolerance, :integer
-      t.change :ei_notification, :integer
-      t.change :ei_rampup, :integer
-      t.change :ei_recovery, :integer
+      t.change :duration, :integer, using: 'duration::integer'
+      t.change :tolerance, :integer, using: 'tolerance::integer'
+      t.change :ei_notification, :integer, using: 'ei_notification::integer'
+      t.change :ei_rampup, :integer, using: 'ei_rampup::integer'
+      t.change :ei_recovery, :integer, using: 'ei_recovery::integer'
     end
 
   end

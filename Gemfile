@@ -23,8 +23,8 @@ end
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'activerecord-jdbcpostgresql-adapter', '~> 1.2.9'
-gem 'jdbc-postgresql', '9.2.1000'
+gem 'activerecord-jdbcpostgresql-adapter', '~> 1.2'
+# gem 'jdbc-postgresql', '9.2.1000'
 
 
 # gem 'jruby-openssl'

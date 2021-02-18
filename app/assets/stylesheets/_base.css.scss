@@ -10,9 +10,11 @@ $active-highlight: #d26911;
 //
 
 body {
+  width: 1200px;
   font-size: 14px;
   position: relative;
-  padding: $body-padding-top 20px 0 10px;
+  padding: 0 20px 0 20px;
+  margin: 0 auto;
 
   .container-fluid {
     margin-left: 0;
@@ -23,7 +25,6 @@ body {
 }
 
 .header {
-  position: fixed;
   z-index: 49;
 
   top: 0px;

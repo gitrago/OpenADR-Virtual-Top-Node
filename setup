@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+sudo apt install -y rbenv
+eval "$(rbenv init -)"
+
+# install required ruby
+rbenv install jruby-1.7.27
+rbenv local jruby-1.7.27
+
+# install bundler and gems
+gem install bundler:1.12.5
+rbenv rehash
+bundle install
+
+# update our shell to use rbenv and setup env vars
+echo > .env
+echo 'eval "$(rbenv init -)"' >> .env
+echo "export RAILS_ENV=production" >> .env
+echo "export SECRET_KEY_BASE=$(rake secret 2>/dev/null)" >> .env
+source .env
+
+# setup database
+cp config/database.yml.example config/database.yml

@@ -1,0 +1,590 @@
+---
+transformer:
+  TS:
+    25:
+      power: 0.67
+      epsilon: 4
+    40:
+      power: 0.74
+      epsilon: 4
+    63:
+      power: 1.12
+      epsilon: 4
+    100:
+      power: 1.475
+      epsilon: 4
+    160:
+      power: 2
+      epsilon: 4
+    250:
+      power: 2.75
+      epsilon: 4
+    400:
+      power: 3.85
+      epsilon: 4
+    630:
+      power: 5.6
+      epsilon: 6
+    1000:
+      power: 9.5
+      epsilon: 6
+    1600:
+      power: 14
+      epsilon: 6
+  TC:
+    25:
+      power: 0
+      epsilon: 0
+    40:
+      power: 0
+      epsilon: 0
+    63:
+      power: 0
+      epsilon: 0
+    100:
+      power: 1.75
+      epsilon: 4
+    160:
+      power: 2.35
+      epsilon: 4
+    250:
+      power: 3.25
+      epsilon: 4
+    400:
+      power: 4.6
+      epsilon: 4
+    630:
+      power: 6.75
+      epsilon: 6
+    1000:
+      power: 10.5
+      epsilon: 6
+    1600:
+      power: 0
+      epsilon: 0
+  IE:
+    25:
+      power: 0.8
+      epsilon: 4.5
+    40:
+      power: 1.05
+      epsilon: 4.5
+    63:
+      power: 1.35
+      epsilon: 4.5
+    100:
+      power: 1.75
+      epsilon: 5
+    160:
+      power: 2.35
+      epsilon: 5
+    250:
+      power: 3.25
+      epsilon: 5
+    400:
+      power: 4.6
+      epsilon: 6
+    630:
+      power: 6.5
+      epsilon: 6
+    1000:
+      power: 10.5
+      epsilon: 6
+    1600:
+      power: 16
+      epsilon: 6
+  NA:
+    25:
+      power: 0.78
+      epsilon: 4.5
+    40:
+      power: 1.1
+      epsilon: 4.5
+    63:
+      power: 1.8
+      epsilon: 4.5
+    100:
+      power: 2.45
+      epsilon: 4.5
+    160:
+      power: 3.5
+      epsilon: 4.5
+    250:
+      power: 4.6
+      epsilon: 4.5
+    400:
+      power: 6.3
+      epsilon: 4.5
+    630:
+      power: 8.75
+      epsilon: 4.5
+    1000:
+      power: 12.7
+      epsilon: 5.7
+    1600:
+      power: 17.5
+      epsilon: 5.7
+wire_cable:
+  "Al kábel":
+    4x16:
+      Rfázis: 1.875
+      Xfázis: 0.11
+      RPEN: 1.875
+      XPEN: 0.11
+    4x25:
+      Rfázis: 1.2
+      Xfázis: 0.097
+      RPEN: 1.2
+      XPEN: 0.097
+    4x35:
+      Rfázis: 0.868
+      Xfázis: 0.094
+      RPEN: 0.868
+      XPEN: 0.094
+    3x35+25:
+      Rfázis: 0.868
+      Xfázis: 0.094
+      RPEN: 1.2
+      XPEN: 0.097
+    4x50:
+      Rfázis: 0.641
+      Xfázis: 0.093
+      RPEN: 0.641
+      XPEN: 0.093
+    3x50+25:
+      Rfázis: 0.641
+      Xfázis: 0.093
+      RPEN: 1.2
+      XPEN: 0.097
+    3x50+35:
+      Rfázis: 0.641
+      Xfázis: 0.093
+      RPEN: 0.868
+      XPEN: 0.094
+    4x70:
+      Rfázis: 0.443
+      Xfázis: 0.092
+      RPEN: 0.443
+      XPEN: 0.092
+    3x70+50:
+      Rfázis: 0.443
+      Xfázis: 0.092
+      RPEN: 0.641
+      XPEN: 0.093
+    4x95:
+      Rfázis: 0.32
+      Xfázis: 0.09
+      RPEN: 0.32
+      XPEN: 0.09
+    3x95+50:
+      Rfázis: 0.32
+      Xfázis: 0.09
+      RPEN: 0.641
+      XPEN: 0.093
+    3x95+70:
+      Rfázis: 0.32
+      Xfázis: 0.09
+      RPEN: 0.443
+      XPEN: 0.092
+    4x120:
+      Rfázis: 0.253
+      Xfázis: 0.09
+      RPEN: 0.253
+      XPEN: 0.09
+    4x150:
+      Rfázis: 0.206
+      Xfázis: 0.09
+      RPEN: 0.206
+      XPEN: 0.09
+    3x150+70:
+      Rfázis: 0.206
+      Xfázis: 0.09
+      RPEN: 0.443
+      XPEN: 0.092
+    4x185:
+      Rfázis: 0.164
+      Xfázis: 0.09
+      RPEN: 0.164
+      XPEN: 0.09
+    3x185+95:
+      Rfázis: 0.164
+      Xfázis: 0.09
+      RPEN: 0.32
+      XPEN: 0.09
+    4x240:
+      Rfázis: 0.125
+      Xfázis: 0.088
+      RPEN: 0.125
+      XPEN: 0.088
+  Cu kábel:
+    4x16:
+      Rfázis: 1.136
+      Xfázis: 0.11
+      RPEN: 1.136
+      XPEN: 0.11
+    4x25:
+      Rfázis: 0.727
+      Xfázis: 0.097
+      RPEN: 0.727
+      XPEN: 0.097
+    4x35:
+      Rfázis: 0.524
+      Xfázis: 0.094
+      RPEN: 0.524
+      XPEN: 0.094
+    3x35+25:
+      Rfázis: 0.524
+      Xfázis: 0.094
+      RPEN: 0.727
+      XPEN: 0.097
+    4x50:
+      Rfázis: 0.387
+      Xfázis: 0.093
+      RPEN: 0.387
+      XPEN: 0.093
+    3x50+25:
+      Rfázis: 0.387
+      Xfázis: 0.093
+      RPEN: 0.727
+      XPEN: 0.097
+    3x50+35:
+      Rfázis: 0.387
+      Xfázis: 0.093
+      RPEN: 0.524
+      XPEN: 0.094
+    4x70:
+      Rfázis: 0.268
+      Xfázis: 0.092
+      RPEN: 0.268
+      XPEN: 0.092
+    3x70+50:
+      Rfázis: 0.268
+      Xfázis: 0.092
+      RPEN: 0.387
+      XPEN: 0.093
+    4x95:
+      Rfázis: 0.193
+      Xfázis: 0.09
+      RPEN: 0.193
+      XPEN: 0.09
+    3x95+50:
+      Rfázis: 0.193
+      Xfázis: 0.09
+      RPEN: 0.387
+      XPEN: 0.093
+    3x95+70:
+      Rfázis: 0.193
+      Xfázis: 0.09
+      RPEN: 0.268
+      XPEN: 0.092
+    4x120:
+      Rfázis: 0.153
+      Xfázis: 0.09
+      RPEN: 0.153
+      XPEN: 0.09
+    4x150:
+      Rfázis: 0.124
+      Xfázis: 0.09
+      RPEN: 0.124
+      XPEN: 0.09
+    3x150+70:
+      Rfázis: 0.124
+      Xfázis: 0.09
+      RPEN: 0.268
+      XPEN: 0.092
+    4x185:
+      Rfázis: 0.099
+      Xfázis: 0.09
+      RPEN: 0.099
+      XPEN: 0.09
+    3x185+95:
+      Rfázis: 0.099
+      Xfázis: 0.09
+      RPEN: 0.193
+      XPEN: 0.09
+    4x240:
+      Rfázis: 0.075
+      Xfázis: 0.088
+      RPEN: 0.075
+      XPEN: 0.088
+  Al vezeték:
+    4x16:
+      Rfázis: 1.83
+      Xfázis: 0.39
+      RPEN: 1.83
+      XPEN: 0.39
+    4x25:
+      Rfázis: 1.2
+      Xfázis: 0.38
+      RPEN: 1.2
+      XPEN: 0.38
+    4x35:
+      Rfázis: 0.867
+      Xfázis: 0.369
+      RPEN: 0.867
+      XPEN: 0.369
+    3x35+25:
+      Rfázis: 0.867
+      Xfázis: 0.369
+      RPEN: 1.2
+      XPEN: 0.38
+    4x50:
+      Rfázis: 0.603
+      Xfázis: 0.357
+      RPEN: 0.603
+      XPEN: 0.357
+    3x50+25:
+      Rfázis: 0.603
+      Xfázis: 0.357
+      RPEN: 1.2
+      XPEN: 0.38
+    3x50+35:
+      Rfázis: 0.603
+      Xfázis: 0.357
+      RPEN: 0.867
+      XPEN: 0.369
+    4x70:
+      Rfázis: 0.447
+      Xfázis: 0.35
+      RPEN: 0.447
+      XPEN: 0.35
+    3x70+50:
+      Rfázis: 0.447
+      Xfázis: 0.35
+      RPEN: 0.603
+      XPEN: 0.357
+    4x95:
+      Rfázis: 0.311
+      Xfázis: 0.34
+      RPEN: 0.311
+      XPEN: 0.34
+    3x95+50:
+      Rfázis: 0.311
+      Xfázis: 0.34
+      RPEN: 0.603
+      XPEN: 0.357
+    3x95+70:
+      Rfázis: 0.311
+      Xfázis: 0.34
+      RPEN: 0.447
+      XPEN: 0.35
+    4x120:
+      Rfázis: 0.288
+      Xfázis: 0.34
+      RPEN: 0.288
+      XPEN: 0.34
+    4x150:
+      Rfázis: 0.0
+      Xfázis: 0.0
+      RPEN: 0.0
+      XPEN: 0.0
+    3x150+70:
+      Rfázis: 0.0
+      Xfázis: 0.0
+      RPEN: 0.0
+      XPEN: 0.0
+    4x185:
+      Rfázis: 0.0
+      Xfázis: 0.0
+      RPEN: 0.0
+      XPEN: 0.0
+    3x185+95:
+      Rfázis: 0.0
+      Xfázis: 0.0
+      RPEN: 0.0
+      XPEN: 0.0
+    4x240:
+      Rfázis: 0.0
+      Xfázis: 0.0
+      RPEN: 0.0
+      XPEN: 0.0
+  Légkábel:
+    4x16:
+      Rfázis: 1.91
+      Xfázis: 0.084
+      RPEN: 1.91
+      XPEN: 0.084
+    4x25:
+      Rfázis: 1.2
+      Xfázis: 0.078
+      RPEN: 1.2
+      XPEN: 0.078
+    4x35:
+      Rfázis: 0.867
+      Xfázis: 0.078
+      RPEN: 0.867
+      XPEN: 0.078
+    3x35+25:
+      Rfázis: 0.867
+      Xfázis: 0.078
+      RPEN: 1.2
+      XPEN: 0.078
+    4x50:
+      Rfázis: 0.617
+      Xfázis: 0.073
+      RPEN: 0.617
+      XPEN: 0.073
+    3x50+25:
+      Rfázis: 0.617
+      Xfázis: 0.073
+      RPEN: 1.2
+      XPEN: 0.078
+    3x50+35:
+      Rfázis: 0.617
+      Xfázis: 0.073
+      RPEN: 0.867
+      XPEN: 0.078
+    4x70:
+      Rfázis: 0.0
+      Xfázis: 0.0
+      RPEN: 0.0
+      XPEN: 0.0
+    3x70+50:
+      Rfázis: 0.0
+      Xfázis: 0.0
+      RPEN: 0.617
+      XPEN: 0.073
+    4x95:
+      Rfázis: 0.311
+      Xfázis: 0.071
+      RPEN: 0.311
+      XPEN: 0.071
+    3x95+50:
+      Rfázis: 0.311
+      Xfázis: 0.071
+      RPEN: 0.617
+      XPEN: 0.073
+    3x95+70:
+      Rfázis: 0.311
+      Xfázis: 0.071
+      RPEN: 0.0
+      XPEN: 0.0
+    4x120:
+      Rfázis: 0.288
+      Xfázis: 0.069
+      RPEN: 0.288
+      XPEN: 0.069
+    4x150:
+      Rfázis: 0.0
+      Xfázis: 0.0
+      RPEN: 0.0
+      XPEN: 0.0
+    3x150+70:
+      Rfázis: 0.0
+      Xfázis: 0.0
+      RPEN: 0.0
+      XPEN: 0.0
+    4x185:
+      Rfázis: 0.0
+      Xfázis: 0.0
+      RPEN: 0.0
+      XPEN: 0.0
+    3x185+95:
+      Rfázis: 0.0
+      Xfázis: 0.0
+      RPEN: 0.0
+      XPEN: 0.0
+    4x240:
+      Rfázis: 0.0
+      Xfázis: 0.0
+      RPEN: 0.0
+      XPEN: 0.0
+  Cu vezeték:
+    4x16:
+      Rfázis: 1.136
+      Xfázis: 0.35765207
+      RPEN: 1.136
+      XPEN: 0.35765207
+    4x25:
+      Rfázis: 1.2
+      Xfázis: 0.343600118
+      RPEN: 1.2
+      XPEN: 0.343600118
+    4x35:
+      Rfázis: 0.868
+      Xfázis: 0.333005836
+      RPEN: 0.868
+      XPEN: 0.333005836
+    3x35+25:
+      Rfázis: 0.868
+      Xfázis: 0.333005836
+      RPEN: 1.2
+      XPEN: 0.343600118
+    4x50:
+      Rfázis: 0.641
+      Xfázis: 0.321775444
+      RPEN: 0.641
+      XPEN: 0.321775444
+    3x50+25:
+      Rfázis: 0.641
+      Xfázis: 0.321775444
+      RPEN: 1.2
+      XPEN: 0.343600118
+    3x50+35:
+      Rfázis: 0.641
+      Xfázis: 0.321775444
+      RPEN: 0.868
+      XPEN: 0.333005836
+    4x70:
+      Rfázis: 0.443
+      Xfázis: 0.311181161
+      RPEN: 0.443
+      XPEN: 0.311181161
+    3x70+50:
+      Rfázis: 0.443
+      Xfázis: 1.311181161
+      RPEN: 0.641
+      XPEN: 0.321775444
+    4x95:
+      Rfázis: 0.32
+      Xfázis: 0.301565808
+      RPEN: 0.32
+      XPEN: 0.301565808
+    3x95+50:
+      Rfázis: 0.32
+      Xfázis: 0.301565808
+      RPEN: 0.641
+      XPEN: 0.321775444
+    3x95+70:
+      Rfázis: 0.32
+      Xfázis: 0.301565808
+      RPEN: 0.443
+      XPEN: 0.311181161
+    4x120:
+      Rfázis: 0.0
+      Xfázis: 0.0
+      RPEN: 0.0
+      XPEN: 0.0
+    4x150:
+      Rfázis: 0.0
+      Xfázis: 0.0
+      RPEN: 0.0
+      XPEN: 0.0
+    3x150+70:
+      Rfázis: 0.0
+      Xfázis: 0.0
+      RPEN: 0.0
+      XPEN: 0.0
+    4x185:
+      Rfázis: 0.0
+      Xfázis: 0.0
+      RPEN: 0.0
+      XPEN: 0.0
+    3x185+95:
+      Rfázis: 0.0
+      Xfázis: 0.0
+      RPEN: 0.0
+      XPEN: 0.0
+    4x240:
+      Rfázis: 0.0
+      Xfázis: 0.0
+      RPEN: 0.0
+      XPEN: 0.0
+tapping_positions:
+  - -0.05
+  - -0.03
+  - -0.025
+  - 0
+  - 0.025
+  - 0.03
+  - 0.05

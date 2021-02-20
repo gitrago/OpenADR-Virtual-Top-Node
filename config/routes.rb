@@ -382,4 +382,5 @@ Oadr::Application.routes.draw do
 
   match "/OpenADR2/Simple/EiEvent", to: "oadr20a#event", via: [:post, :get], as: "oadr20a_event"
 
+  match '/callback/mattermost', to: 'mattermost#callback', via: [:post, :get], as: 'mattermost_callback'
 end

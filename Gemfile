@@ -27,7 +27,7 @@ gem 'activerecord-jdbcpostgresql-adapter', '~> 1.2'
 # gem 'jdbc-postgresql', '9.2.1000'
 
 
-# gem 'jruby-openssl'
+gem 'jruby-openssl'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -98,3 +98,4 @@ end
 
 # To use debugger
 # gem 'debugger'
+gem 'gruff', '~> 0.11.0'

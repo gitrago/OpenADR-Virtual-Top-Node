@@ -11,7 +11,7 @@ module EpriSheet
         network.sanitized.each{|k,v| cumlen << cumlen[-1] + v[:length]}
 
         data = (0..1000).step(10).map do |dist|
-          section = cumlen.index{|i| dist <= i}
+          section = cumlen.index{|i| dist <= i} || cumlen.length - 1
           r, x = imp_r(section), imp_x(section)
           z = Complex(r, x)
           [dist, {section: section, imp_r: r, imp_x: x, z: z }]

@@ -40,6 +40,7 @@ module EpriSheet
       @address, @token = @params['state'].split("|||", 2)
       @data = YAML.load(Base64.decode64(@token))
       @sheet = EpriSheet::Main.run(@params['submission'], @data)
+      @digest = Digest::MD5.hexdigest(Base64.encode64(@sheet.sanitized.to_yaml))
 
       message = "Load simulation for address: `#{@address}`  \n"
       message += format_voltage_results
@@ -115,9 +116,8 @@ module EpriSheet
     end
 
     def chart_for(name)
-
-      name = "#{Digest::MD5.hexdigest(@token)}-#{name}.png"
-      path = Rails.root.join("public", "charts", name).to_s
+      fn = "#{@digest}-#{name}.png"
+      path = Rails.root.join("public", "charts", fn).to_s
       unless File.exist?(path)
         g = Gruff::Line.new
         g.title = name.to_s.titleize
@@ -127,7 +127,7 @@ module EpriSheet
         g.labels = Hash[@sheet.result.send(name)['L1'].map.with_index{|k,i| [i, k[0]] if i % 10 == 0}.compact]
         g.write(path)
       end
-      "#{ENV['RAILS_SERVER_URL']}/charts/#{name}"
+      "#{ENV['RAILS_SERVER_URL']}/charts/#{fn}"
     end
 
     def format_voltage_results

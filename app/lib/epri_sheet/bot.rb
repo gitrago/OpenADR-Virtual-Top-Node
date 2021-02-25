@@ -25,16 +25,36 @@ module EpriSheet
       geocode
 
       if coordinates_valid?
+        map_url = "https://maps.googleapis.com/maps/api/staticmap?center=#{@coords.join(",")}&zoom=14&size=640x400"
+        map_url += "&markers=#{@coords.join(',')}&key=#{ENV['GOOGLE_API_KEY']}"
         Thread.new do
-          message = "ADDRESS is valid and within bounds, it resolves to {#{@coords.join(",")}}  "
-          map_url = "https://maps.googleapis.com/maps/api/staticmap?center=#{@coords.join(",")}&zoom=14&size=400x400&key=#{ENV['GOOGLE_API_KEY']}"
+          message = "Address: `#{@address}` is valid and within bounds,  "
+          message += "\nit resolves to {#{@coords.join(",")}} coordinates.  "
           message += "\n![Address Map](#{map_url} \"#{@address}\")"
           reply_with message
         end
         query
       end
-
       return {error: send(@error)} if @error.present?
+
+      sof = data['segments_of_feeder']
+      message = []
+      message << "**Number of Feeder segments:** |#{sof.length}|"
+      message << "-----: | :-----|-----"
+      sof.each do |i, v|
+        message << "> > Segment |**#{i}/#{sof.length}**|"
+        message << "Number of customers:|#{v['segment_customercount']}|"
+        message << "Segment Length:| #{v['segment_length']} meters|"
+        message << "Cable type:|#{v['cablematerial_on_segment']}|#{v['cabletype_on_segment']}"
+        message << "Connected DERs:|#{sof['DERS'].length}|"
+        sof['DERs'].each do |j, w|
+          message << "|- - - - - - - - - - - - - - |#{j}/#{sof['DERs'].length} "
+          message << "|Power:|#{w['DER_capacity']}"
+          message << "|Distance:|#{w['DER_distance']} "
+          message << "|Connection:|#{w['DER_connection']}, #{w['DER_connect2phase']}"
+        end
+      end
+      Thread.new { reply_with message }
 
       Thread.new {
         token = Base64.encode64(@data.to_yaml).gsub("\n", "")

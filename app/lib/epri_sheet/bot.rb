@@ -21,11 +21,19 @@ module EpriSheet
     end
 
     def entry
-      puts @params.inspect
       @address = @params['text']
       geocode
 
-      query if coordinates_valid?
+      if coordinates_valid?
+        Thread.new do
+          message = "ADDRESS is valid and within bounds, it resolves to {#{@coords.join(",")}}  "
+          map_url = "https://maps.googleapis.com/maps/api/staticmap?center=#{@coords.join(",")}&zoom=14&size=400x400&key=#{ENV['GOOGLE_API_KEY']}"
+          message += "\n![Address Map](#{map_url} \"#{@address}\")"
+          reply_with message
+        end
+        query
+      end
+
       return {error: send(@error)} if @error.present?
 
       Thread.new {
@@ -47,22 +55,27 @@ module EpriSheet
       message += "\n![Voltage Profile](#{chart_for(:voltage_profile)} \"Voltage Profile Chart\")"
       message += "![Voltage Change](#{chart_for(:voltage_change)} \"Voltage Change Chart\")"
 
+      reply_with message
+      nil
+    end
+
+    protected
+
+    def reply_with(message, channel_id = nil, user_id = nil)
+      post = { message: message, channel_id: channel_id || @params['channel_id'] }
       headers = { 'content_type' => 'application/json', 'Authorization' =>  "Bearer #{ENV['MATTERMOST_BOT_TOKEN']}" }
-      post = { message: message, channel_id: @params['channel_id'] }
 
       if ENV['EPRI_USE_EPHEMERAL_POSTS'].to_i.zero?
         url = "#{ENV['MATTERMOST_SERVER_URL']}/api/v4/posts"
         res = agent.post(url, body: post.to_json, header: headers)
       else
-        post = { post: post, user_id: @params['user_id'] }
+        post = { post: post, user_id: user_id || @params['user_id']}
         url = "#{ENV['MATTERMOST_SERVER_URL']}/api/v4/posts/ephemeral"
         res = agent.post(url, body: post.to_json, header: headers)
       end
 
-      nil
+      res
     end
-
-    protected
 
     def open_mm_dialog(state)
       dialog = {

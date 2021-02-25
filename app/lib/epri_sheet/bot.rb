@@ -24,21 +24,19 @@ module EpriSheet
       @address = @params['text']
       geocode
 
-      if coordinates_valid?
-        map_url = "https://maps.googleapis.com/maps/api/staticmap?center=#{@coords.join(",")}&zoom=14&size=640x400"
-        map_url += "&markers=#{@coords.join(',')}&key=#{ENV['GOOGLE_API_KEY']}"
-        Thread.new do
-          message = "Address: `#{@address}` is valid and within bounds,  "
-          message += "\nit resolves to {#{@coords.join(",")}} coordinates.  "
-          message += "\n![Address Map](#{map_url} \"#{@address}\")"
-          reply_with message
-        end
-        query
-      end
+      query if coordinates_valid?
       return {error: send(@error)} if @error.present?
 
-      sof = data['segments_of_feeder']
+      map_url = "https://maps.googleapis.com/maps/api/staticmap?center=#{@coords.join(",")}&zoom=14&size=640x400"
+      map_url += "&markers=#{@coords.join(',')}&key=#{ENV['GOOGLE_API_KEY']}"
+
       message = []
+      message << "Address: `#{@address}` is valid and within bounds,"
+      message << "\nit resolves to {#{@coords.join(",")}} coordinates."
+      message << "\n![Address Map](#{map_url} \"#{@address}\")"
+      message << "\n---"
+
+      sof = @data['segments_of_feeder']
       message << "**Number of Feeder segments:** |#{sof.length}|"
       message << "-----: | :-----|-----"
       sof.each do |i, v|
@@ -46,15 +44,18 @@ module EpriSheet
         message << "Number of customers:|#{v['segment_customercount']}|"
         message << "Segment Length:| #{v['segment_length']} meters|"
         message << "Cable type:|#{v['cablematerial_on_segment']}|#{v['cabletype_on_segment']}"
-        message << "Connected DERs:|#{sof['DERS'].length}|"
-        sof['DERs'].each do |j, w|
-          message << "|- - - - - - - - - - - - - - |#{j}/#{sof['DERs'].length} "
-          message << "|Power:|#{w['DER_capacity']}"
-          message << "|Distance:|#{w['DER_distance']} "
-          message << "|Connection:|#{w['DER_connection']}, #{w['DER_connect2phase']}"
+        if v.key?("DERs")
+          message << "Connected DERs:|#{v['DERs'].length}|"
+          v['DERs'].each do |j, w|
+            message << "|- - - - - - - - - - - - - - |#{j}/#{v['DERs'].length} "
+            message << "|Power:|#{w['DER_capacity']}"
+            message << "|Distance:|#{w['DER_distance']} "
+            message << "|Connection:|#{w['DER_connection']}, #{w['DER_connect2phase']}"
+          end
         end
       end
-      Thread.new { reply_with message }
+
+      Thread.new { reply_with message.join("  \n") }
 
       Thread.new {
         token = Base64.encode64(@data.to_yaml).gsub("\n", "")

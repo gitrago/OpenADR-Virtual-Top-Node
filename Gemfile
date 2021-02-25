@@ -98,4 +98,7 @@ end
 
 # To use debugger
 # gem 'debugger'
+
+# custom
 gem 'gruff', '~> 0.11.0'
+gem "font-awesome-rails"

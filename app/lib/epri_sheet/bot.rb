@@ -100,7 +100,7 @@ module EpriSheet
 
     def open_mm_dialog(state)
       dialog = {
-        url: "#{ENV['RAILS_SERVER_URL']}/callback/mattermost",
+        url: "#{ENV['RAILS_SERVER_URL']}/callback/mattermost/lfs",
         trigger_id: @params['trigger_id'],
         dialog: {
           title: 'Load Flow Simulation -- /lfs',

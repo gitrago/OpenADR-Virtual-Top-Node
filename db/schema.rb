@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160923193100) do
+ActiveRecord::Schema.define(:version => 20210325060658) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -232,8 +232,8 @@ ActiveRecord::Schema.define(:version => 20160923193100) do
     t.integer  "ei_notification"
     t.integer  "ei_rampup",                    :default => 0
     t.integer  "ei_recovery",                  :default => 0
-    t.datetime "created_at",                                  :null => false
-    t.datetime "updated_at",                                  :null => false
+    t.datetime "created_at",                                      :null => false
+    t.datetime "updated_at",                                      :null => false
     t.integer  "response_required_type_id"
     t.boolean  "template"
     t.integer  "schedule_id"
@@ -243,6 +243,7 @@ ActiveRecord::Schema.define(:version => 20160923193100) do
     t.boolean  "include_subscribed_vens_only"
     t.boolean  "include_party_id"
     t.string   "event_interface_name"
+    t.string   "time_zone",                    :default => "UTC"
   end
 
   add_index "events", ["account_id"], :name => "index_events_on_account_id"

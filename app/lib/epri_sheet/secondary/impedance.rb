@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 module EpriSheet
   module Secondary
     # Impedence Map Phase/PEN driver

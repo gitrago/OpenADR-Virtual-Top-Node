@@ -314,9 +314,9 @@ class Event < ActiveRecord::Base
   validates :market_context_id, :presence => true
   validates :priority, :presence => true
   validates :tolerance, numericality: { only_integer: true }
-  validates :ei_notification, numericality: { only_integer: true }
-  validates :ei_rampup, numericality: { only_integer: true }
-  validates :ei_recovery, numericality: { only_integer: true }
+  validates :ei_notification, numericality: { only_integer: true, allow_nil: true }
+  validates :ei_rampup, numericality: { only_integer: true, allow_nil: true }
+  validates :ei_recovery, numericality: { only_integer: true, allow_nil: true }
 
   #####################################################################
 

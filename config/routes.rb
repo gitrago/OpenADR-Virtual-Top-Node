@@ -382,4 +382,7 @@ Oadr::Application.routes.draw do
 
   match "/OpenADR2/Simple/EiEvent", to: "oadr20a#event", via: [:post, :get], as: "oadr20a_event"
 
+  match '/callback/mattermost/lfs', to: 'mattermost#lfs', via: [:post, :get], as: 'mattermost_lfs_callback'
+  match '/callback/mattermost/schedules', to: 'mattermost#schedules', via: [:post, :get], as: 'mattermost_schedules_callback'
+  match '/callback/mattermost/schedule', to: 'mattermost#schedule', via: [:post, :get], as: 'mattermost_schedule_callback'
 end

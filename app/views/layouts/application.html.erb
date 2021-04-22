@@ -19,23 +19,25 @@
   </head>
   <body class="<%= signed_in? ? 'signed-in' : 'signed-in' %> <%= "#{params[:controller]}-#{params[:action]}" %>">
 
-    <%= render 'header' %>
+    <%# render 'header' %>
 
-    <%= render 'navigation' %>
+    <div class="container" style="max-width: 720px">
+      <%= render 'navigation' %>
 
-    <% if content_for?(:subnav_items) %>
-      <div class="subnav_container">
-        <div class="subnav">
-          <%= yield(:subnav_items) %>
+      <% if content_for?(:subnav_items) %>
+        <div class="subnav_container">
+          <div class="subnav">
+            <%= yield(:subnav_items) %>
+          </div>
         </div>
+      <% end %>
+
+      <div class="container-fluid content-container">
+
+        <%= yield %>
+
+        <%# render 'footer' %>
       </div>
-    <% end %>
-
-    <div class="container-fluid content-container">
-
-      <%= yield %>
-
-      <%= render 'footer' %>
     </div>
   </body>
 </html>

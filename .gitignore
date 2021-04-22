@@ -6,12 +6,12 @@
 
 # Ignore bundler config
 /.bundle
+.env
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /config/database.yml
 /config/torquebox.yml
-/config/initializers/secret_token.rb
 
 # Ignore all logfiles and tempfiles.
 /log/*
@@ -42,3 +42,5 @@ coverage
 lib/api/*
 lib/schema/*
 
+/public/charts/*
+!/public/charts/.keep

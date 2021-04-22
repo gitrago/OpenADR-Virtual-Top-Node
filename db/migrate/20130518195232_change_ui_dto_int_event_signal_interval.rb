@@ -187,7 +187,7 @@
 
 class ChangeUiDtoIntEventSignalInterval < ActiveRecord::Migration
   def up
-    change_column :event_signal_intervals, :uid, :integer
+    change_column :event_signal_intervals, :uid, :integer, using: 'uid::integer'
   end
 
   def down

@@ -188,7 +188,7 @@
 class UpdateSignalIntervalChangeDurationToMinutes < ActiveRecord::Migration
   def up
     change_table :event_signal_intervals do |t|
-      t.change :duration, :integer
+      t.change :duration, :integer, using: 'duration::integer'
     end
   end
 

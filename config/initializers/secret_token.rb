@@ -5,4 +5,4 @@
 
 # generate a token by running: rake secret
 # replace 'place token here' with the output from the command above
-Oadr::Application.config.secret_token = 'place token here'
+Oadr::Application.config.secret_token = ENV['SECRET_KEY_BASE']

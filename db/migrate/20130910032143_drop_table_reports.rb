@@ -187,6 +187,7 @@
 
 class DropTableReports < ActiveRecord::Migration
   def up
+    return unless table_exists?(:reports)
     drop_table :reports
   end
 

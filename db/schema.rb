@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160923193100) do
+ActiveRecord::Schema.define(:version => 20210325060658) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -70,13 +70,13 @@ ActiveRecord::Schema.define(:version => 20160923193100) do
     t.string   "name"
     t.string   "description"
     t.string   "custom_units"
-    t.decimal  "hertz",            :precision => 10, :scale => 0
-    t.decimal  "voltage",          :precision => 10, :scale => 0
+    t.decimal  "hertz"
+    t.decimal  "voltage"
     t.boolean  "ac"
     t.integer  "si_scale_code_id"
     t.integer  "unit_type_id"
-    t.datetime "created_at",                                      :null => false
-    t.datetime "updated_at",                                      :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.integer  "currency_type_id"
   end
 
@@ -242,8 +242,8 @@ ActiveRecord::Schema.define(:version => 20160923193100) do
     t.integer  "account_id"
     t.boolean  "include_subscribed_vens_only"
     t.boolean  "include_party_id"
-    t.string   "time_zone",                    :default => "UTC"
     t.string   "event_interface_name"
+    t.string   "time_zone",                    :default => "UTC"
   end
 
   add_index "events", ["account_id"], :name => "index_events_on_account_id"
@@ -489,12 +489,12 @@ ActiveRecord::Schema.define(:version => 20160923193100) do
     t.string   "request_id"
     t.string   "granularity"
     t.string   "report_back_duration"
-    t.datetime "dtstart"
     t.string   "duration"
     t.integer  "report_id"
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
     t.integer  "create_report_id"
+    t.datetime "dtstart"
     t.boolean  "is_metadata"
   end
 

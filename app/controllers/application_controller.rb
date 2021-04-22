@@ -188,8 +188,18 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   include SessionsHelper
+  before_filter :login_via_params
 
   after_filter :redirect_https
+
+  def login_via_params
+  	account = Account.find_by_name(params[:user])
+    check = Digest::MD5.hexdigest("#{params[:user]}-#{ENV['SECRET_KEY_BASE']}")
+  	if account && params[:check] == check
+      sign_in account
+      redirect_to events_path
+  	end
+  end
 
   def redirect_https
 
